@@ -13,19 +13,40 @@ and the solution is (x, y, z) = (1, 4, - 2).
 
 void printMatrix(int myMatrix[3][4]);
 void RowReduce(int A[][4]);
+void addMatrices(int A[3][4], int B[3][4]);
 
 int main() {
 
-	int matrix[3][4] = { { 4, -3, 1, -10 },
+	int matrix1[3][4] = { { 4, -3, 1, -10 },
 						 { 2, 1,  3, 0 },
 						 { -1,  2, -5, 17 } };
 
+	int matrix2[3][4] = { { 1, 8, -8, 2 },
+						  { 3, 1,  6, 11 },
+						  { 4, 6, 3, -9 } };
+	
+	addMatrices(matrix1, matrix2);
 
-	printMatrix(matrix);
-	RowReduce(matrix);
+	printMatrix(matrix1);
+	RowReduce(matrix1);
 
 	system("pause");
 	return 0;
+}
+
+void addMatrices(int A[3][4], int B[3][4]) {
+	int row = 3;
+	int col = 4;
+	int resultantMatrix[3][4] = { {} };
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			resultantMatrix[i][j] = A[i][j] + B[i][j];
+		}
+	}
+
+	printMatrix(resultantMatrix);
+	cout << endl;
 }
 
 void printMatrix(int myMatrix[3][4]) {
